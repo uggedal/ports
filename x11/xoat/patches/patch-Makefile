@@ -1,0 +1,18 @@
+$OpenBSD$
+--- Makefile.orig	Sat Mar 28 07:10:08 2015
++++ Makefile	Wed Nov 11 08:44:14 2015
+@@ -3,8 +3,6 @@ LDADD?=`pkg-config --cflags --libs x11 xinerama xft`
+ 
+ normal:
+ 	$(CC) -o xoat xoat.c $(CFLAGS) $(LDADD) $(LDFLAGS)
+-	$(CC) -o xoat-debug xoat.c $(CFLAGS) -g $(LDADD) $(LDFLAGS)
+-	strip xoat
+ 
+ docs:
+ 	pandoc -s -w man xoat.md -o xoat.1
+@@ -12,4 +10,4 @@ docs:
+ clean:
+ 	rm -f xoat xoat-debug
+ 
+-all: docs normal
++all: normal
